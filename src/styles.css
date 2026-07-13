@@ -1,17 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root {
-  /* Color Palette */
-  --bg-primary: #050508;
-  --bg-secondary: #0a0a0f;
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --accent-primary: #3b82f6;
-  --accent-secondary: #8b5cf6;
-  --accent-tertiary: #ec4899;
+  /* Color Palette - Light & Warm */
+  --bg-primary: #fdfbf7;
+  --bg-secondary: #f4eee0;
+  --text-primary: #2d2624;
+  --text-secondary: #6e6460;
+  --accent-primary: #ea580c;
+  --accent-secondary: #f97316;
+  --accent-tertiary: #e11d48;
   --gradient-accent: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
-  --border-color: rgba(255, 255, 255, 0.08);
-  --glass-bg: rgba(255, 255, 255, 0.03);
+  --border-color: rgba(0, 0, 0, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.65);
   
   /* Typography */
   --font-family: 'Outfit', sans-serif;
@@ -75,7 +75,7 @@ body::after {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 1rem;
 }
 
@@ -140,12 +140,12 @@ section:nth-child(5) { animation-delay: 0.5s; }
   border-radius: 20px;
   padding: 2.5rem;
   transition: all var(--transition-normal);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
 }
 
 .glass-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(0, 0, 0, 0.12);
 }

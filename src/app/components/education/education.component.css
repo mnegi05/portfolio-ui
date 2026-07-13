@@ -28,7 +28,7 @@
 .edu-icon {
   flex-shrink: 0;
   padding: 8px;
-  background: rgba(99, 102, 241, 0.1);
+  background: rgba(234, 88, 12, 0.1);
   border-radius: 12px;
   width: 48px;
   height: 48px;
@@ -47,7 +47,7 @@
 
 .edu-date {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.04);
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.9rem;
