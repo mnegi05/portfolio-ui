@@ -1,0 +1,26 @@
+.about-section {
+  position: relative;
+  z-index: 1;
+}
+
+.about-card {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-card p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.about-card p:last-child {
+  margin-bottom: 0;
+}
+
+.about-card strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
