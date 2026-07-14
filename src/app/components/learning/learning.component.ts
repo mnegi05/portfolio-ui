@@ -7,7 +7,7 @@ interface Technology {
   title: string;
   iconClass: string;
   svg: SafeHtml;
-  features: { title: string; description: string }[];
+  features: { title: string; description: string; syntax?: string }[];
 }
 
 @Component({
@@ -87,11 +87,13 @@ export class LearningComponent implements OnInit, OnDestroy {
         iconClass: 'git-icon',
         svg: this.sanitizer.bypassSecurityTrustHtml('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="30" height="30"><path fill="#F1502F" d="M123.6 59.8L68.2 4.4c-2.4-2.4-6.3-2.4-8.8 0L42.2 21.6 55.4 34.8c2.9-1 6.1-.2 8.3 2 2.7 2.7 3.2 6.7 1.6 9.8l13 13c3.1-1.6 7.1-1.1 9.8 1.6 3.4 3.4 3.4 9 0 12.4-3.4 3.4-9 3.4-12.4 0-2.7-2.7-3.2-6.7-1.6-9.8l-12.4-12.4v26.1c1.5 1 2.6 2.5 3 4.2 1 3.5-1 7.1-4.5 8.1-3.5 1-7.1-1-8.1-4.5-1-3.5 1-7.1 4.5-8.1.9-.3 1.9-.3 2.8-.1v-26.6c-1.6-1.1-2.7-2.8-3.1-4.8l-13.6-13.6-26.9 26.9c-2.4 2.4-2.4 6.3 0 8.8l55.4 55.4c2.4 2.4 6.3 2.4 8.8 0l46.2-46.2c2.4-2.4 2.4-6.4 0-8.8z"/></svg>'),
         features: [
-          { title: 'git clone', description: 'Downloads an existing repository from GitHub to your local machine.' },
-          { title: 'git add', description: 'Stages your modified files, preparing them for a commit.' },
-          { title: 'git commit -m "msg"', description: 'Saves your staged changes to the local repository with a descriptive message.' },
-          { title: 'git push', description: 'Uploads your local commits to the remote GitHub repository.' },
-          { title: 'git pull', description: 'Fetches and merges any new changes from the remote repository to your local branch.' }
+          { title: 'git clone', description: 'Downloads an existing repository from GitHub to your local machine.', syntax: 'git clone https://github.com/user/repo.git' },
+          { title: 'git add', description: 'Stages your modified files, preparing them for a commit.', syntax: 'git add .' },
+          { title: 'git commit -m "msg"', description: 'Saves your staged changes to the local repository with a descriptive message.', syntax: 'git commit -m "Added new feature"' },
+          { title: 'git push', description: 'Uploads your local commits to the remote GitHub repository.', syntax: 'git push origin main' },
+          { title: 'git pull', description: 'Fetches and merges any new changes from the remote repository to your local branch.', syntax: 'git pull origin main' },
+          { title: 'git merge', description: 'Integrates changes from one branch into another, preserving the branch commit history.', syntax: 'git merge feature-branch' },
+          { title: 'git rebase', description: 'Moves a sequence of commits to a new base commit, creating a cleaner, linear project history.', syntax: 'git rebase main' }
         ]
       }
     ];
