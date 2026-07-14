@@ -14,7 +14,7 @@
             <div class="icon-wrapper" [ngClass]="tech.iconClass" [innerHTML]="tech.svg"></div>
             <span class="tab-label">{{ tech.title }}</span>
             <div class="progress-bar" *ngIf="i === activeIndex">
-              <div class="progress-fill"></div>
+              <div class="progress-fill" [class.paused]="isPaused"></div>
             </div>
           </button>
         }

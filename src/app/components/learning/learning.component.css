@@ -89,6 +89,10 @@
   animation: progress 5s linear forwards;
 }
 
+.progress-fill.paused {
+  animation: progress 30s linear forwards;
+}
+
 @keyframes progress {
   from { width: 0%; }
   to { width: 100%; }

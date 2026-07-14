@@ -20,7 +20,9 @@ interface Technology {
 export class LearningComponent implements OnInit, OnDestroy {
   technologies: Technology[] = [];
   activeIndex = 0;
+  isPaused = false;
   private intervalId: any;
+  private timeoutId: any;
 
   constructor(private sanitizer: DomSanitizer) {
     this.technologies = [
@@ -104,20 +106,29 @@ export class LearningComponent implements OnInit, OnDestroy {
   }
 
   startAutoRotate() {
+    this.isPaused = false;
     this.intervalId = setInterval(() => {
       this.activeIndex = (this.activeIndex + 1) % this.technologies.length;
-    }, 5000); // 4 seconds per tab
+    }, 5000); // 5 seconds per tab
   }
 
   stopAutoRotate() {
     if (this.intervalId) {
       clearInterval(this.intervalId);
     }
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+    }
   }
 
   selectTab(index: number) {
     this.activeIndex = index;
     this.stopAutoRotate();
-    this.startAutoRotate();
+    this.isPaused = true;
+    
+    // Pause for 30 seconds before resuming
+    this.timeoutId = setTimeout(() => {
+      this.startAutoRotate();
+    }, 30000);
   }
 }
