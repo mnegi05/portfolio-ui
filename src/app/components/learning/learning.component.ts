@@ -95,6 +95,39 @@ export class LearningComponent implements OnInit, OnDestroy {
           { title: 'git merge', description: 'Integrates changes from one branch into another, preserving the branch commit history.', syntax: 'git merge feature-branch' },
           { title: 'git rebase', description: 'Moves a sequence of commits to a new base commit, creating a cleaner, linear project history.', syntax: 'git rebase main' }
         ]
+      },
+      {
+        id: 'solid',
+        title: 'SOLID Principles',
+        iconClass: 'solid-icon',
+        svg: this.sanitizer.bypassSecurityTrustHtml('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>'),
+        features: [
+          { 
+            title: 'Single Responsibility Principle (SRP)', 
+            description: 'A class should have one, and only one, reason to change. It should only have one job.', 
+            syntax: 'class UserAuth {\n  login(user: User) { /* auth logic */ }\n}\nclass UserProfile {\n  updateEmail(email: string) { /* profile logic */ }\n}' 
+          },
+          { 
+            title: 'Open-Closed Principle (OCP)', 
+            description: 'Software entities should be open for extension, but closed for modification.', 
+            syntax: 'interface Shape { getArea(): number; }\nclass Circle implements Shape {\n  constructor(public radius: number) {}\n  getArea() { return Math.PI * this.radius ** 2; }\n}' 
+          },
+          { 
+            title: 'Liskov Substitution Principle (LSP)', 
+            description: 'Subtypes must be substitutable for their base types without altering the correctness of the program.', 
+            syntax: 'class Bird { layEgg() {} }\nclass FlyingBird extends Bird { fly() {} }\nclass Penguin extends Bird { /* no fly() method, respects LSP */ }' 
+          },
+          { 
+            title: 'Interface Segregation Principle (ISP)', 
+            description: 'Clients should not be forced to depend upon interfaces that they do not use. Split large interfaces into smaller ones.', 
+            syntax: 'interface Printer { print(): void; }\ninterface Scanner { scan(): void; }\nclass BasicPrinter implements Printer {\n  print() { /* prints */ }\n}' 
+          },
+          { 
+            title: 'Dependency Inversion Principle (DIP)', 
+            description: 'High-level modules should not depend on low-level modules. Both should depend on abstractions (interfaces).', 
+            syntax: 'interface Logger { log(msg: string): void; }\nclass UserService {\n  constructor(private logger: Logger) {}\n  createUser() { this.logger.log("Created"); }\n}' 
+          }
+        ]
       }
     ];
   }
