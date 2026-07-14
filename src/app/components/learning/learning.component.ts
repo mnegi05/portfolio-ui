@@ -128,6 +128,39 @@ export class LearningComponent implements OnInit, OnDestroy {
             syntax: 'interface Logger { log(msg: string): void; }\nclass UserService {\n  constructor(private logger: Logger) {}\n  createUser() { this.logger.log("Created"); }\n}' 
           }
         ]
+      },
+      {
+        id: 'system',
+        title: 'System Design',
+        iconClass: 'system-icon',
+        svg: this.sanitizer.bypassSecurityTrustHtml('<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"></rect><rect x="2" y="16" width="6" height="6" rx="1"></rect><rect x="9" y="2" width="6" height="6" rx="1"></rect><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path><path d="M12 12V8"></path></svg>'),
+        features: [
+          { 
+            title: 'Microservices Architecture', 
+            description: 'Structures an application as a collection of loosely coupled, independently deployable services organized around business capabilities.', 
+            syntax: 'Client -> API Gateway\n  -> User Service (DB 1)\n  -> Order Service (DB 2)\n  -> Payment Service (DB 3)' 
+          },
+          { 
+            title: 'Event-Driven Architecture', 
+            description: 'A paradigm promoting the production, detection, and consumption of events, allowing services to communicate asynchronously via a message broker.', 
+            syntax: 'Order Service -> publishes "OrderCreated"\nMessage Broker (Kafka) -> routes event\nInventory Service -> subscribes -> updates stock' 
+          },
+          { 
+            title: 'Load Balancing & Scaling', 
+            description: 'Distributing network traffic across multiple servers to ensure no single server bears too much demand, enabling seamless horizontal scaling.', 
+            syntax: 'Client Request -> Load Balancer (Nginx/AWS ALB)\n  -> Server Instance 1 (Healthy)\n  -> Server Instance 2 (Healthy)' 
+          },
+          { 
+            title: 'Caching Strategies', 
+            description: 'Storing frequently accessed data in fast, in-memory databases (like Redis) to reduce primary database load and improve response times.', 
+            syntax: 'function getUser(id):\n  if cache.has(id): return cache.get(id) // Cache Hit\n  user = db.query(id)                    // Cache Miss\n  cache.set(id, user)\n  return user' 
+          },
+          { 
+            title: 'API Gateway & Rate Limiting', 
+            description: 'A single entry point that receives API requests, enforces throttling policies, handles authentication, and routes them to the correct back-end services.', 
+            syntax: 'if (requests_per_minute > 100):\n  return 429 Too Many Requests\nelse:\n  route_to_microservice()' 
+          }
+        ]
       }
     ];
   }
